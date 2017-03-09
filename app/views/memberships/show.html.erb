@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
-<%= cl_image_tag @membership.photo, height: 300, width: 400, crop: :fill %>
+
+<%= image_tag @membership.photo.url(:bright_face) %>
 <p>
   <strong>First name:</strong>
   <%= @membership.first_name %>

@@ -1,10 +1,12 @@
 class MembershipsController < ApplicationController
+  before_action :authenticate_user!, only: [ :index, :show ]
   before_action :set_membership, only: [:show, :edit, :update, :destroy]
 
   # GET /memberships
   # GET /memberships.json
   def index
-    @memberships = Membership.all
+    # @memberships = Membership.all
+    @memberships = policy_scope(Membership).order(created_at: :desc)
   end
 
   # GET /memberships/1
@@ -15,6 +17,7 @@ class MembershipsController < ApplicationController
   # GET /memberships/new
   def new
     @membership = Membership.new
+    authorize @membership
   end
 
   # GET /memberships/1/edit
@@ -24,7 +27,10 @@ class MembershipsController < ApplicationController
   # POST /memberships
   # POST /memberships.json
   def create
+    # @membership = current_user.memberships.build(membership_params)
     @membership = Membership.new(membership_params)
+    @membership.user = current_user
+    authorize @membership
 
     respond_to do |format|
       if @membership.save
@@ -40,6 +46,8 @@ class MembershipsController < ApplicationController
   # PATCH/PUT /memberships/1
   # PATCH/PUT /memberships/1.json
   def update
+    @membership = Membership.find(params[:id])
+    @membership.update(membership_params)
     respond_to do |format|
       if @membership.update(membership_params)
         format.html { redirect_to @membership, notice: 'Membership was successfully updated.' }
@@ -65,10 +73,11 @@ class MembershipsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_membership
       @membership = Membership.find(params[:id])
+      authorize @membership
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
-      params.require(:membership).permit(:first_name, :last_name, :diplome, :age, :activity, :massif, :periode, :passmorgiou, :passsormiou, :siret, :description, :user_id, :photo, :photo_cache)
+      params.require(:membership).permit(:first_name, :last_name, :diplome, :age, :activity, :massif, :periode, :passsormiou, :passsormiou, :siret, :description, :user_id, :photo, :photo_cache)
     end
 end
