@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+<%= cl_image_tag @membership.photo, height: 300, width: 400, crop: :fill %>
+<p>
+  <strong>First name:</strong>
+  <%= @membership.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @membership.last_name %>
+</p>
+
+<p>
+  <strong>Diplome:</strong>
+  <%= @membership.diplome %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @membership.age %>
+</p>
+
+<p>
+  <strong>Activity:</strong>
+  <%= @membership.activity %>
+</p>
+
+<p>
+  <strong>Massif:</strong>
+  <%= @membership.massif %>
+</p>
+
+<p>
+  <strong>Periode:</strong>
+  <%= @membership.periode %>
+</p>
+
+<p>
+  <strong>Passmorgiou:</strong>
+  <%= @membership.passmorgiou %>
+</p>
+
+<p>
+  <strong>Passsormiou:</strong>
+  <%= @membership.passsormiou %>
+</p>
+
+<p>
+  <strong>Siret:</strong>
+  <%= @membership.siret %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @membership.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @membership.user %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @membership.photo %>
+</p>
+
+<%= link_to 'Edit', edit_membership_path(@membership) %> |
+<%= link_to 'Back', memberships_path %>
