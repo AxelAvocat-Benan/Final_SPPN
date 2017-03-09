@@ -19,6 +19,8 @@ gem 'autoprefixer-rails'
 gem 'cloudinary'
 gem 'carrierwave', '~> 0.11.2'
 gem 'pundit'
+gem 'activeadmin', github: 'activeadmin/activeadmin'
+gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
 group :development, :test do
   gem 'binding_of_caller'
