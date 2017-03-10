@@ -6,7 +6,7 @@ class MembershipsController < ApplicationController
   # GET /memberships.json
   def index
     # @memberships = Membership.all
-    @memberships = policy_scope(Membership).order(created_at: :desc)
+    @memberships = policy_scope(Membership).order(created_at: :asc)
   end
 
   # GET /memberships/1
@@ -78,6 +78,6 @@ class MembershipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def membership_params
-      params.require(:membership).permit(:first_name, :last_name, :diplome, :age, :activity, :massif, :periode, :passsormiou, :passsormiou, :siret, :description, :user_id, :photo, :photo_cache)
+      params.require(:membership).permit(:first_name, :last_name, :diplome, :age, :activity, :massif, :periode, :passsormiou, :passsormiou, :siret, :description, :photo, :photo_cache)
     end
 end

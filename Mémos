@@ -132,11 +132,14 @@ rails db:migrate
 
 
 
-<!--  <% if @membership.photo? %>
+      <% if @membership.photo? %>
         <%= cl_image_tag @membership.photo.path, height: 300, width: 400, crop: :fill %>
-      <% end %> -->
+      <% end %>
 
 
+      <% if @membership.photo? %>
+        <%= image_tag @membership.photo.url(:bright_face) %>
+      <% end %>
 
 
 

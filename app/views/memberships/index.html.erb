@@ -27,3 +27,25 @@
     </div>
   </div>
 </div>
+
+<div class="membership">
+  <div class='membership-body'>
+    <div class="col-xs-12 col-sm-4">
+      <% @memberships.each do |membership| %>
+
+        <%= render "card", membership: membership %>
+
+        <%= link_to 'Show', membership %>
+
+        <% if policy(membership).update? %>
+          <%= link_to 'Update', edit_membership_path(membership) %>
+        <% end %>
+
+        <% if policy(membership).destroy? %>
+          <%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
