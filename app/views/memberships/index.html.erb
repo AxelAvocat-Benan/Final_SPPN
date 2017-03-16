@@ -1,17 +1,15 @@
 <h1 class="text-center">Liste des membres</h1>
 
-        <% if policy(Membership).create? %>
-              <%= link_to 'New Membership', new_membership_path %>
-        <% end %>
+<% if policy(Membership).create? %>
+      <%= link_to 'New Membership', new_membership_path %>
+<% end %>
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <% @memberships.each do |membership| %>
+    <% @memberships.each do |membership| %>
 
-
+      <div class="col-xs-12 col-sm-6 col-md-4">
         <%= render "card", membership: membership %>
-
         <%= link_to 'Show', membership %>
 
         <% if policy(membership).update? %>
@@ -21,31 +19,8 @@
         <% if policy(membership).destroy? %>
           <%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
+      </div>
 
-      <% end %>
-
-    </div>
-  </div>
-</div>
-
-<div class="membership">
-  <div class='membership-body'>
-    <div class="col-xs-12 col-sm-4">
-      <% @memberships.each do |membership| %>
-
-        <%= render "card", membership: membership %>
-
-        <%= link_to 'Show', membership %>
-
-        <% if policy(membership).update? %>
-          <%= link_to 'Update', edit_membership_path(membership) %>
-        <% end %>
-
-        <% if policy(membership).destroy? %>
-          <%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

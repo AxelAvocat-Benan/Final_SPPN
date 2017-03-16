@@ -170,3 +170,7 @@ remove_timestamps
 rename_column
 rename_index
 rename_table
+
+
+background-image: url("http://res.cloudinary.com/ddg1oj7vj/image/upload/v1488010235/Acceuil_Calanques_wulfna.jpg");
+background: image-url("http://res.cloudinary.com/ddg1oj7vj/image/upload/v1488010235/Acceuil_Calanques_wulfna.jpg");
