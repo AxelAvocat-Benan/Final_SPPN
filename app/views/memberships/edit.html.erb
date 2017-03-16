@@ -1,6 +1,16 @@
-<h1>Editing Membership</h1>
+<div class="class text-center">
+  <h1>Editing Membership</h1>
+</div>
 
-<%= render 'form', membership: @membership %>
+<div class="container">
+  <div class="form-group col-xs12 col-sm6 col-smoffset-3">
+    <%= simple_form_for(@membership) do |f| %>
+    <%= f.error_notification %>
 
-<%= link_to 'Show', @membership %> |
-<%= link_to 'Back', memberships_path %>
+    <%= render 'form', membership: @membership %>
+
+    <%= link_to 'Back', memberships_path %>
+
+    <% end %>
+  </div>
+</div>

@@ -1,70 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="class text-center">
+  <% content_for(:title_tag) do %>
+  Read <%= @membership.last_name %> on SPPN
+  <% end %>
+</div>
 
-<%= image_tag @membership.photo.url(:bright_face) %>
-<p>
-  <strong>First name:</strong>
-  <%= @membership.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @membership.last_name %>
-</p>
+      <div class="class text-center">
+        <% if @membership.photo? %>
+          <%= cl_image_tag @membership.photo, radius: 20, width: 300, height: 300, crop: :thumb %>
+        <% end %>
 
-<p>
-  <strong>Diplome:</strong>
-  <%= @membership.diplome %>
-</p>
+        <h2><%= @membership.last_name %></h2>
+        <h2><%= @membership.first_name %></h2>
+        <p><%= @membership.diplome %></p>
+        <p><%= @membership.age %></p>
+        <p><%= @membership.activity %></p>
+        <p><%= @membership.massif %></p>
+        <p><%= @membership.periode %></p>
+        <p><%= @membership.description %></p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @membership.age %>
-</p>
 
-<p>
-  <strong>Activity:</strong>
-  <%= @membership.activity %>
-</p>
+        <% if policy(@membership).edit? %>
+          <%= link_to 'Edit', edit_membership_path(@membership) %>
+        <% end %>
+        <%= link_to 'Back', memberships_path %>
+      </div>
 
-<p>
-  <strong>Massif:</strong>
-  <%= @membership.massif %>
-</p>
-
-<p>
-  <strong>Periode:</strong>
-  <%= @membership.periode %>
-</p>
-
-<p>
-  <strong>Passmorgiou:</strong>
-  <%= @membership.passmorgiou %>
-</p>
-
-<p>
-  <strong>Passsormiou:</strong>
-  <%= @membership.passsormiou %>
-</p>
-
-<p>
-  <strong>Siret:</strong>
-  <%= @membership.siret %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @membership.description %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @membership.user %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @membership.photo %>
-</p>
-
-<%= link_to 'Edit', edit_membership_path(@membership) %> |
-<%= link_to 'Back', memberships_path %>
