@@ -4,7 +4,7 @@
     <%= simple_form_for(@membership) do |f| %>
     <%= f.error_notification %>
 
-      <%= f.input :last_name, label:"Nom", placeholder: "NOM"%>
+      <%= f.input :last_name, label:"Nom", placeholder: "NOM", error: 'Veuillez renseigner votre nom'%>
       <%= f.input :first_name,label:"Prénom", placeholder: "Prénom" %>
       <%= f.input :age, label:"Date de naissance", placeholder: "jj/mm/aaaa" %>
       <%= f.input :diplome, label:"Diplômes", placeholder: "BE Escalade..." %>
