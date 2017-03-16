@@ -1,25 +1,17 @@
-<h1 class="text-center">Liste des membres</h1>
-
-<% if policy(Membership).create? %>
-      <%= link_to 'New Membership', new_membership_path, class: 'btn btn-success' %>
-<% end %>
-
+<div class="text-center">
+  <h1>Liste des membres</h1>
+  <% if policy(Membership).create? %>
+        <%= link_to 'Formulaire d\'inscription', new_membership_path, class: 'btn btn-success' %>
+  <% end %>
+</div>
 <div class="container">
   <div class="row">
     <% @memberships.each do |membership| %>
 
       <div class="col-xs-12 col-sm-6 col-md-3">
         <%= render "card", membership: membership %>
-
-        <% if policy(membership).update? %>
-          <%= link_to 'Update', edit_membership_path(membership) %>
-        <% end %>
-
-        <% if policy(membership).destroy? %>
-          <%= link_to 'Destroy', membership, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
       </div>
 
-    <% end %> 
+    <% end %>
   </div>
 </div>
