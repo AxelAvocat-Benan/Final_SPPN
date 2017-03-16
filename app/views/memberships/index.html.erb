@@ -1,16 +1,15 @@
 <h1 class="text-center">Liste des membres</h1>
 
 <% if policy(Membership).create? %>
-      <%= link_to 'New Membership', new_membership_path %>
+      <%= link_to 'New Membership', new_membership_path, class: 'btn btn-success' %>
 <% end %>
 
 <div class="container">
   <div class="row">
     <% @memberships.each do |membership| %>
 
-      <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="col-xs-12 col-sm-6 col-md-3">
         <%= render "card", membership: membership %>
-        <%= link_to 'Show', membership %>
 
         <% if policy(membership).update? %>
           <%= link_to 'Update', edit_membership_path(membership) %>
@@ -21,6 +20,6 @@
         <% end %>
       </div>
 
-    <% end %>
+    <% end %> 
   </div>
 </div>
