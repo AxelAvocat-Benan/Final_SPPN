@@ -1,0 +1,9 @@
+[1mdiff --git a/app/views/memberships/_card.html.erb b/app/views/memberships/_card.html.erb[m
+[1mindex 8ea1a10..d707bbd 100644[m
+[1m--- a/app/views/memberships/_card.html.erb[m
+[1m+++ b/app/views/memberships/_card.html.erb[m
+[36m@@ -10,3 +10,4 @@[m
+   <!--   <a class="card-link" href="#" ></a>-->[m
+   </div>[m
+ </div>[m
+[32m+[m[32m</div>[m

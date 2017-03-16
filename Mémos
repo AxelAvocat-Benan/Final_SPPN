@@ -174,3 +174,8 @@ rename_table
 
 background-image: url("http://res.cloudinary.com/ddg1oj7vj/image/upload/v1488010235/Acceuil_Calanques_wulfna.jpg");
 background: image-url("http://res.cloudinary.com/ddg1oj7vj/image/upload/v1488010235/Acceuil_Calanques_wulfna.jpg");
+
+créer une branche : git checkout -b traducteur-devise
+voir le status de ton dossier : git status
+voir la différence dans les dossiers : git diff
+
